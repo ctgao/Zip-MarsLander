@@ -10,6 +10,7 @@ public class DescentEvent {
         this.Velocity = sp;
         this.Fuel = f;
         this.Altitude = h;
+        this.Status = st;
     }
 
     public int getVelocity() {
@@ -22,7 +23,7 @@ public class DescentEvent {
     public int getStatus() { return this.Status; }
     @Override
     public String toString() {
-        String s = this.Seconds +"\t\t" + this.Velocity + " \t\t" + this.Fuel + " \t\t" + this.Altitude;
+        String s = this.Seconds +"\t\t" + this.Velocity + " \t\t\t" + this.Fuel + " \t\t" + this.Altitude;
         return s;
     }
 }

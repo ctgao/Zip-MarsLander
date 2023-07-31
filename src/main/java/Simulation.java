@@ -32,9 +32,9 @@ public class Simulation {
         s = s + "Velocity\t\t"; s = s + "Fuel\t\t";
         s = s + "Altitude\t\t"; s = s + "Burn\n";
         s = s + "----\t";
-        s = s + "-----\t\t";
+        s = s + "-----\t\t\t";
         s = s + "----\t\t";
-        s = s + "------\t\t"; s = s + "----\n";
+        s = s + "------\t\t\t"; s = s + "----\n";
         return s;
     }
 
@@ -55,7 +55,7 @@ public class Simulation {
         printString(getHeader());
         while (vehicle.stillFlying()) {
             status = vehicle.getStatus(burnInterval);
-            System.out.print(status.toString()+"\t\t");
+            System.out.print(status.toString()+"\t\t\t");
             vehicle.adjustForBurn(burnSource.getNextBurn(status));
             if (vehicle.outOfFuel()) {
                 break;
@@ -66,6 +66,7 @@ public class Simulation {
             }
         }
         printString(vehicle.checkFinalStatus());
+        status = vehicle.getStatus(burnInterval);
         if (status != null) {
             return status.getStatus();
         }
