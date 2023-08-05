@@ -14,7 +14,7 @@ public class SimulationTest {
         BurnStream burnSource = new BurnDataStream(burns);
         Simulation game = new Simulation(new Vehicle(5000));
         int okay = game.runSimulation(burnSource);
-        Assert.assertEquals(okay, Vehicle.SUCCESS);
+        Assert.assertEquals(Vehicle.SUCCESS, okay);
     }
 
     @Test
@@ -43,4 +43,13 @@ public class SimulationTest {
         Assert.assertEquals(Vehicle.SUCCESS, okay);
     }
 
+    @Test
+    public void runSimulationComputerRandomALOT() {
+        for(int i = 0; i < 1_000_000; i++) {
+            BurnStream burnSource = new OnBoardComputer();
+            Simulation game = new Simulation(new Vehicle(Simulation.randomaltitude()));
+            int okay = game.runSimulation(burnSource);
+            Assert.assertEquals(Vehicle.SUCCESS, okay);
+        }
+    }
 }
